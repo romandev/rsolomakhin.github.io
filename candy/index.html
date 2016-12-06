@@ -22,19 +22,19 @@ var giveCandy = function() {
     //}, error: function (error) {
     //    console.log("error");
     //}});
-    //window.location = "http://52.76.218.147/giveCandy/?id=1";
+    window.location = "http://52.76.218.147/giveCandy/?id=1";
 	
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        alert("결제 성공");
-      } else if(this.readyState == 4) {
-	alert("결제 실패" + this.readyState + " / "+ this.status);      
-      }
-    };
+    //var xhttp = new XMLHttpRequest();
+    //xhttp.onreadystatechange = function() {
+    //  if (this.readyState == 4 && this.status == 200) {
+    //    alert("결제 성공");
+    //  } else if(this.readyState == 4) {
+    //	alert("결제 실패" + this.readyState + " / "+ this.status);      
+    //  }
+    //};
     //xhttp.open("GET", "https://52.76.218.147:9099/giveCandy/?id=1", true);
-    xhttp.open("GET", "https://paytest.github.io/success.html", true);
-    xhttp.send();
+    //xhttp.open("GET", "https://paytest.github.io/success.html", true);
+    //xhttp.send();
 }
 </script>
 
