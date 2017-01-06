@@ -73,7 +73,6 @@ function onBuyClicked() {  // eslint-disable-line no-unused-vars
         id: 'standard',
         label: 'Standard shipping',
         amount: {currency: 'USD', value: '0.00'},
-        selected: true
       },
       {
         id: 'express',
