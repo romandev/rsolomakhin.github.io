@@ -45,7 +45,8 @@ function onBuyClicked() {  // eslint-disable-line no-unused-vars
 
   var options = {
     requestPayerEmail: true,
-    requestPayerPhone: true
+    requestPayerPhone: true,
+    requestPayerName: true
   };
 
   if (!window.PaymentRequest) {
