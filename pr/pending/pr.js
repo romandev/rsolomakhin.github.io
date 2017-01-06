@@ -19,19 +19,23 @@ function updateDetails(details, shippingOption) {
   if (shippingOption === 'standard') {
     selectedShippingOption = details.shippingOptions[0];
     otherShippingOption = details.shippingOptions[1];
-    details.total.amount.value = '54.00';
+    details.total.amount.value = '64.00';
     
     promoItem.label = 'standard shipping special discount.';
     promoItem.amount.value = '-1.00';
   } else {
     selectedShippingOption = details.shippingOptions[1];
     otherShippingOption = details.shippingOptions[0];
-    details.total.amount.value = '64.00';
+    details.total.amount.value = '74.00';
     
     promoItem.label = 'express shipping special discount.';
     promoItem.amount.value = '-3.00';
   }
-  details.displayItems.splice(0, 1, promoItem);
+  if (details.displayItems.length === 2) {
+    details.displayItems.splice(1, 1, promoItem, selectedShippingOption);
+  } else {
+    details.displayItems.splice(1, 2, promoItem, selectedShippingOption);
+  }
   
   selectedShippingOption.selected = true;
   otherShippingOption.selected = false;
@@ -55,13 +59,13 @@ function onBuyClicked() {  // eslint-disable-line no-unused-vars
     total: {label: 'Donation', amount: {currency: 'USD', value: '65.00'}},
     displayItems: [
       {
+        label: 'Original donation amount',
+        amount: {currency: 'USD', value: '65.00'}
+      },
+      {
           label: 'Pending shipping price',
           amount: {currency: 'USD', value: '0.00'},
           pending: true
-      },
-      {
-        label: 'Original donation amount',
-        amount: {currency: 'USD', value: '65.00'}
       }
     ],
     shippingOptions: [
