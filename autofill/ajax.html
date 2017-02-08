@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script>
+
+function send() {
+	var data = new FormData();
+	data.append('CCNo', '4111111111111111');
+	data.append('CCExpiresMonth', '01');
+	data.append('CCExpiresYear', '2017');
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://example.com/', true);
+	xhr.onload = function () {
+	    // do something to response
+	    console.log(this.responseText);
+	};
+	xhr.send(data);
+}
+
+</script>
+
+<button type="button" onclick="send()">Click Me!</button>
+
+</html>
