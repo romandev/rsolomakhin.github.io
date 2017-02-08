@@ -8,7 +8,7 @@ function send() {
 	data.append('CCExpiresYear', '2017');
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https:/paytest.github.io/autofill/index.html', true);
+	xhr.open('POST', 'https://paytest.github.io/autofill/index.html', true);
 	xhr.onload = function () {
 	    // do something to response
 	    console.log(this.responseText);
