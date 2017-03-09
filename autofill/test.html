@@ -1,11 +1,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Autofill Smoke Test</title>
-	
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
     <script>
  
       /* These are not valid credit card numbers!!!! */
@@ -48,34 +43,16 @@
     </style>
   </head>
   <body>
-	  <div data-role="page">
-		  <div role="main" class="ui-content">
-			  <h3>Credit Card autofill</h3>
-		  </div>
-	  </div>
 		 
   <em>Beware what you post, all the forms send data to https://example.com.</em>
   <br><br>
 </p><hr>
   <h3>Credit Card autofill</h3>
-	
-<form>
-    <label for="textinput-s">Text Input:</label>
-    <input type="text" name="textinput-s" id="textinput-s" placeholder="Text input" value="" data-clear-btn="true">
-    <label for="select-native-s">Select:</label>
-    <select name="select-native-s" id="select-native-s">
-        <option value="small">One</option>
-        <option value="medium">Two</option>
-        <option value="large">Three</option>
-    </select>
-    <label for="slider-s">Input slider:</label>
-    <input type="range" name="slider-s" id="slider-s" value="25" min="0" max="100" data-highlight="true">
-</form>	
 
 <form name="cc1.1" id="cc1" action="https://example.com/" method="post">
-  Name on card: <input autofocus="" type="text" name="name"><br>
-  Credit card number: <input type="text" name="CCNo"><br>
-  Expiry Date: <select name="CCExpiresMonth">
+  Name on card: <br><input autofocus="" type="text" name="name" style="width: 100%;"><br>
+  Credit card number: <br><input type="text" name="CCNo"  style="width: 100%;"><br>
+  Expiry Date: <br><select name="CCExpiresMonth">
     <option value="01">01</option>
     <option value="02">02</option>
     <option value="03">03</option>
@@ -107,7 +84,7 @@
     <option value="2023">2023</option>
   </select>
   <br>
-  CVC: <input name="cvc">
+  CVC: <br><input name="cvc" style="width: 100%;">
 <br>
   <input type="reset" value="Reset">
   <input type="submit" value="Submit">
