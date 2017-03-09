@@ -105,13 +105,13 @@
   <h3>Profile Autofill</h3>
 
 <form name="addr1.1" id="form1" action="https://example.com/" method="post">
-  Name: <input type="text" name="name"><br>
-  Address: <input type="text" name="address"><br>
-  City: <input type="text" name="city"><br>
-  State: <input type="text" name="state"><br>
-  Zip: <input name="zip" id="form_zip"> <br>
-  Country: <input name="country" id="form_country"> <br>
-  Email: <input name="email" id="form_email"> <br>
+  Name: <br><input type="text" name="name" style="width: 100%;"><br>
+  Address: <br><input type="text" name="address" style="width: 100%;"><br>
+  City: <br><input type="text" name="city" style="width: 100%;"><br>
+  State: <br><input type="text" name="state" style="width: 100%;"><br>
+  Zip: <br><input name="zip" id="form_zip" style="width: 100%;"><br>
+  Country: <br><input name="country" id="form_country" style="width: 100%;"><br>
+  Email: <br><input name="email" id="form_email" style="width: 100%;"><br>
   <input type="reset" value="Reset">
   <input type="submit" value="Submit">
 </form>
@@ -164,9 +164,9 @@
   <h3>Credit Card autofill</h3>
 
 <form name="cc1.1" id="cc1" action="https://example.com/" method="post">
-  Credit card number: <input type="text" name="CCNo"><br>
-  Name on card: <input autofocus="" type="text" name="name"><br>
-  Expiry Date: <select name="CCExpiresMonth">
+  Credit card number: <br><input type="text" name="CCNo" style="width: 100%;"><br>
+  Name on card: <br><input autofocus="" type="text" name="name" style="width: 100%;"><br>
+  Expiry Date: <br><select name="CCExpiresMonth">
     <option value="01">01</option>
     <option value="02">02</option>
     <option value="03">03</option>
@@ -198,7 +198,7 @@
     <option value="2023">2023</option>
   </select>
   <br>
-  CVC: <input name="cvc">
+  CVC: <br><input name="cvc" style="width: 100%;">
 <br>
   <input type="reset" value="Reset">
   <input type="submit" value="Submit">
