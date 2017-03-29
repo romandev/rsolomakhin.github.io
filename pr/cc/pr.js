@@ -12,7 +12,7 @@ function buildPaymentRequest() {
 
   var supportedInstruments = [{
     supportedMethods: [
-      'creditcard',/*'unionpay', 'visa', 'mastercard', 'amex', 'discover', 'diners', 'jcb'*/
+      'unionpay', 'visa', 'mastercard', 'amex', 'discover', 'diners', 'jcb'
     ]
   }];
 
