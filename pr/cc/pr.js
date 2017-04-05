@@ -59,13 +59,13 @@ function buildPaymentRequest() {
     }]
   };
 
-  var request = null;
+    let request = null;
 
   try {
     request = new PaymentRequest(supportedInstruments, details);
     if (request.canMakePayment) {
       request.canMakePayment().then(function(result) {
-        info(result ? "Can make payment" : "Cannot make payment");
+        info(result ? 'Can make payment' : 'Cannot make payment');
       }).catch(function(err) {
         error(err);
       });
@@ -77,10 +77,10 @@ function buildPaymentRequest() {
   return request;
 }
 
-var request = buildPaymentRequest();
+let request = buildPaymentRequest();
 
 /**
- * Launches payment request for credit cards.
+ * Launches payment request that does not require shipping.
  */
 function onBuyClicked() { // eslint-disable-line no-unused-vars
   if (!window.PaymentRequest || !request) {
@@ -90,6 +90,27 @@ function onBuyClicked() { // eslint-disable-line no-unused-vars
 
   try {
     request.show()
+      .then(function(instrumentResponse) {
+        window.setTimeout(function() {
+          instrumentResponse.complete('success')
+            .then(function() {
+              done('Thank you!', instrumentResponse);
+            })
+            .catch(function(err) {
+              error(err);
+              request = buildPaymentRequest();
+            });
+        }, 2000);
+      })
+      .catch(function(err) {
+        error(err);
+        request = buildPaymentRequest();
+      });
+  } catch (e) {
+    error('Developer mistake: \'' + e + '\'');
+    request = buildPaymentRequest();
+  }
+}
       .then(function(instrumentResponse) {
         window.setTimeout(function() {
           instrumentResponse.complete('success')
