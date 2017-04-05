@@ -1,9 +1,6 @@
-/* global done:false */
-/* global error:false */
-/* global PaymentRequest:false */
-
-/**
+ /**
  * Initializes the payment request object.
+ * @return {PaymentRequest} The payment request object.
  */
 function buildPaymentRequest() {
   if (!window.PaymentRequest) {
@@ -16,26 +13,26 @@ function buildPaymentRequest() {
     ]
   }];
 
-  var details = {
+  const details = {
     total: {
       label: 'Donation',
       amount: {
         currency: 'USD',
-        value: '55.00'
-      }
+        value: '55.00',
+      },
     },
     displayItems: [{
       label: 'Original donation amount',
       amount: {
         currency: 'USD',
-        value: '65.00'
-      }
+        value: '65.00',
+      },
     }, {
       label: 'Friends and family discount',
       amount: {
         currency: 'USD',
-        value: '-10.00'
-      }
+        value: '-10.00',
+      },
     }],
     modifiers: [{
       supportedMethods: ['visa'],
@@ -43,23 +40,23 @@ function buildPaymentRequest() {
         label: 'Discounted donation',
         amount: {
           currency: 'USD',
-          value: '45.00'
-        }
+          value: '45.00',
+        },
       },
       additionalDisplayItems: [{
         label: 'VISA discount',
         amount: {
           currency: 'USD',
-          value: '-10.00'
-        }
+          value: '-10.00',
+        },
       }],
       data: {
-        discountProgramParticipantId: '86328764873265'
-      }
-    }]
+        discountProgramParticipantId: '86328764873265',
+      },
+    }],
   };
 
-    let request = null;
+  let request = null;
 
   try {
     request = new PaymentRequest(supportedInstruments, details);
@@ -90,27 +87,6 @@ function onBuyClicked() { // eslint-disable-line no-unused-vars
 
   try {
     request.show()
-      .then(function(instrumentResponse) {
-        window.setTimeout(function() {
-          instrumentResponse.complete('success')
-            .then(function() {
-              done('Thank you!', instrumentResponse);
-            })
-            .catch(function(err) {
-              error(err);
-              request = buildPaymentRequest();
-            });
-        }, 2000);
-      })
-      .catch(function(err) {
-        error(err);
-        request = buildPaymentRequest();
-      });
-  } catch (e) {
-    error('Developer mistake: \'' + e + '\'');
-    request = buildPaymentRequest();
-  }
-}
       .then(function(instrumentResponse) {
         window.setTimeout(function() {
           instrumentResponse.complete('success')
